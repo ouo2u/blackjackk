@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 
@@ -34,6 +34,7 @@ namespace Blackjack_21
                         {
                             Console.Clear();
                             Console.WriteLine("Välkommen till Blackjack, du och dator kommer få 2 kort. ");
+                            Console.WriteLine("");
                             int dittkort1 = slumpkort.Next(1, 11);
                             int dittkort2 = slumpkort.Next(1, 11);
                             int dinaPoäng = dittkort1 + dittkort2;
@@ -55,29 +56,34 @@ namespace Blackjack_21
                                     dittkort1 = slumpkort.Next(1, 11);
                                     dinaPoäng = dinaPoäng + dittkort1;
                                     Console.WriteLine("du drog kort: " + dittkort1);
+                                    Console.WriteLine("");
                                     Console.WriteLine("summan är: " + dinaPoäng);
                                     Console.WriteLine("dator poäng är: " + datorpoäng);
+                                    
 
                                     if (dinaPoäng > 21)
                                     {
+                                    
+                                        Console.WriteLine("");
                                         Console.WriteLine("du förlårade");
+                                        Console.WriteLine("");
                                         break;
                                     }
 
-                               
 
-                                 
-                                 
-                                  
+
+
+
+
                                 }
-                                  else if (janej == "n")
-                                  {  
-                                        
-                                            
-                                        while (datorpoäng < dinaPoäng)
-                                        {
+                                else if (janej == "n")
+                                {
+
+
+                                    while (datorpoäng < dinaPoäng)
+                                    {
                                         Console.Clear();
-                                        
+
                                         Console.WriteLine("dator måste få mer än dig för att kunna vinna ");
                                         datorkort1 = slumpkort.Next(1, 11);
                                         datorpoäng = datorpoäng + datorkort1;
@@ -85,7 +91,7 @@ namespace Blackjack_21
                                         Console.WriteLine("dator nya summa är: " + datorpoäng);
                                         Console.WriteLine("din summa " + dinaPoäng);
                                         Thread.Sleep(2000);
-                                        }
+                                    }
                                     if (dinaPoäng == datorpoäng)
                                     {
                                         Console.WriteLine("det är lika, ingen vinner ");
@@ -95,16 +101,16 @@ namespace Blackjack_21
                                     {
                                         Console.WriteLine("du vän eftersom dator summa är över 21");
                                         Console.WriteLine("skriv in ditt namn");
-                                       string namn = Console.ReadLine();
+                                        string namn = Console.ReadLine();
                                         break;
                                     }
-                                    else if (datorpoäng> dinaPoäng)
+                                    else if (datorpoäng > dinaPoäng)
                                     {
                                         Console.WriteLine("dator vinner!, försök agien");
                                         break;
                                     }
 
-                                  }
+                                }
                             }
                         }
                         break;
@@ -115,6 +121,11 @@ namespace Blackjack_21
                         break;
 
                     case 3:
+                        Console.Clear();
+                        Console.WriteLine("Du spelar mot en croupier (banken) och det gäller att få en hand som slår bankens hand. Om din poäng är högre än bankens så vinner du dubbla insatsen.");
+                        Console.WriteLine("");
+                        Console.WriteLine("Om du får exakt 21 på dina första två kort så får du Blackjack vilket ger 2.5 gånger pengarna tillbaka.");
+                        Console.WriteLine("");
 
                         break;
                 }
